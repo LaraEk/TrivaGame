@@ -1,8 +1,8 @@
 #tolkienbox {
         background-color: #ffffff;
-        width: auto;
+        width: 50%; 
         height: auto;
-        margin: 5% 30% 10% 30%;
+        margin: 2% 25% 10% 25%;
         color: #f3e62f;
         padding: 0 15px 15px 15px;
         border-style: solid;
@@ -10,4 +10,8 @@
         border-color: #eec926;
         position: absolute;
         line-height: 25px;
+    }
+
+    img {
+        width: auto;
     }
