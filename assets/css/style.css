@@ -1,0 +1,13 @@
+#tolkienbox {
+        background-color: #ffffff;
+        width: auto;
+        height: auto;
+        margin: 5% 30% 10% 30%;
+        color: #f3e62f;
+        padding: 0 15px 15px 15px;
+        border-style: solid;
+        border-width: 10px;
+        border-color: #eec926;
+        position: absolute;
+        line-height: 25px;
+    }
