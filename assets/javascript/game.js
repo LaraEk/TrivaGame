@@ -37,25 +37,22 @@ function stop() {
 // -------------------------------------------------------------------------------------------------------- //
 
 
-var questions = [ 
-    "1. Which of these is not one of the Valar?", 
-    "2. How many Silmarils are there?",
-    "3. How old was Bilbo when he left the Shire in Fellowship?",
-    "4. How many members of the Fellowship are there?",
-    "5. Which of these is not one of Gandalf's names?",
-];
 
-var questionone = ["(1) Manwe ", "(2) Varda ", "(3) Orome ", "(4) Eru "];
-var q1index = 3;
-var questiontwo = ["thousands", 9, 3, 14];
-var q2index = 2;
-var questionthree = [33, 50, 111, 249];
-var q3index = 1;
-var questionfour = [9,9,9,"Why are you even asking me this question?"];
-var questionfive = ["Mithrandir", "Elbereth", "Olorin", "Greyhame"];
-var q5index= 1;
+var questionone = {
+    question: "1. Which of these is not one of the Valar?", 
+    answers: ["(1) Manwe ", "(2) Varda ", "(3) Orome ", "(4) Eru "],
+    answerindex: 3,
+  };
 
-var currentquestion = questions[Math.floor(Math.random() * questions.length)];
+var questiontwo = {
+    question: "2. How many Silmarils are there?", 
+    answers: ["thousands", 9, 3, 14],
+    answerindex: 2,
+  };
+  
+var questions = [questionone, questiontwo];
+
+var currentquestion = 0; 
 
 var winapoint = 0;
 var loseapoint = 0;
@@ -63,8 +60,6 @@ var loseapoint = 0;
 var getquestionright = false;
 
 // ------------------------------------------------------------------------
-
-
 
 function newGame() {
   currentquestion = 0;
@@ -79,10 +74,8 @@ $("#starteasy").on("click", function() {
 
 $("#starthard").on("click", function() {
   $(this).hide();
-
   runclock();
   askasillyquestion();
-  }
 });
 
 // ------------------------------------------------------------------------
@@ -90,17 +83,27 @@ $("#starthard").on("click", function() {
 
 
 function askasillyquestion() {
-  console.log(currentquestion);
-  $("#questionslot").html(currentquestion);
-  $("#answerslot").html(questionone);
-}
+  currentquestion = questions[Math.floor(Math.random() * questions.length)];
+  console.log(currentquestion.question);
+  console.log(currentquestion.answers);
+  console.log(currentquestion.answerindex);
 
-if (getquestionright == true) {
+  $("#questionslot").html(currentquestion.question);
+  $("#answerslotuno").html(currentquestion.answers[0]);
+  $("#answerslotdos").html(currentquestion.answers[1]);
+  $("#answerslottres").html(currentquestion.answers[2]);
+  $("#answerslotquatro").html(currentquestion.answers[3]);
   
-  $("correctquestions").html()
-} else {
+  // if (getquestionright == true) {
+  
+  //   $("correctquestions").html()
+  // } else {}
+  
 
 }
+
+
+
 function getasillyanswer() {
   //this is where the answer choosing goes
 }
