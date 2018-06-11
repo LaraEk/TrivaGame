@@ -94,6 +94,9 @@ function askasillyquestion() {
   $("#answerslottres").html(currentquestion.answers[2]);
   $("#answerslotquatro").html(currentquestion.answers[3]);
   
+  $(".zeeanswers").on("click", function (){
+    console.log("boing boing");
+  });
   // if (getquestionright == true) {
   
   //   $("correctquestions").html()

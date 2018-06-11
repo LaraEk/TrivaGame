@@ -15,3 +15,91 @@
     img {
         width: auto;
     }
+
+#answerslotuno {        
+        width: 30%;
+        padding: 3px 3px;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #83640e;
+        background-color: #eec926;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 3px #999;
+    }
+
+#answerslotuno:hover {background-color: #facf43}
+
+#answerslotuno:active {
+  background-color: #3f3e8e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+    }
+
+#answerslotdos {        
+    width: 30%;
+    padding: 3px 3px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #83640e;
+    background-color: #eec926;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 3px #999;
+}
+
+#answerslotdos:hover {background-color: #facf43}
+
+#answerslotdos:active {
+  background-color: #3f3e8e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+    }
+
+#answerslottres {        
+    width: 30%;
+    padding: 3px 3px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #83640e;
+    background-color: #eec926;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 3px #999;
+}
+
+#answerslottres:hover {background-color: #facf43}
+
+#answerslottres:active {
+  background-color: #3f3e8e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+    }
+
+#answerslotquatro {        
+    width: 30%;
+    padding: 3px 3px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #83640e;
+    background-color: #eec926;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 3px #999;
+}
+
+#answerslotquatro:hover {background-color: #facf43}
+
+#answerslotquatro:active {
+  background-color: #3f3e8e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+    }
