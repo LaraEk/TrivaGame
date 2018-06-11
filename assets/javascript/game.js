@@ -96,6 +96,19 @@ function askasillyquestion() {
   
   $(".zeeanswers").on("click", function (){
     console.log("boing boing");
+    var clickedindex = $(".zeeanswers").index(this);
+    var thatstherightanswer = currentquestion.answerindex;
+    console.log(clickedindex);
+
+    if (clickedindex == thatstherightanswer) {
+      getquestionright = true;
+      console.log("yeah, you're right!")
+    } else {
+      console.log("no u r rong boo")
+    }
+
+
+
   });
   // if (getquestionright == true) {
   
