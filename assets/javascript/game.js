@@ -29,7 +29,7 @@ function stop() {
 
 
 // --- THE TIMER --- //
-// --- Timer copied from class; will specify timer to activities once I've figured out my questions more -- //
+// --- Timer adapted from class version; will specify once I've figured out my questions more -- //
 // -------------------------------------------------------------------------------------------------------- //
 // -------------------------------------------------------------------------------------------------------- //
 // -------------------------------------------------------------------------------------------------------- //
@@ -60,18 +60,11 @@ var currentquestion = questions[Math.floor(Math.random() * questions.length)];
 var winapoint = 0;
 var loseapoint = 0;
 
-function askasillyquestion() {
-  runclock();
-    console.log(currentquestion);
-    $("#questionslot").html(currentquestion);
-    $("#answerslot").html(questionone);
-}
+var getquestionright = false;
 
-askasillyquestion();
+// ------------------------------------------------------------------------
 
-function getasillyanswer() {
-  //this is where the answer choosing goes
-}
+
 
 function newGame() {
   currentquestion = 0;
@@ -79,14 +72,35 @@ function newGame() {
   askasillyquestion();
 }
 
-$("#start").on("click", function() {
+$("#starteasy").on("click", function() {
   $(this).hide();
-  newGame();
+  askasillyquestion();
 });
+
+$("#starthard").on("click", function() {
+  $(this).hide();
+
+  runclock();
+  askasillyquestion();
+  }
+});
+
+// ------------------------------------------------------------------------
+
+
+
+function askasillyquestion() {
+  console.log(currentquestion);
+  $("#questionslot").html(currentquestion);
+  $("#answerslot").html(questionone);
+}
 
 if (getquestionright == true) {
   
   $("correctquestions").html()
 } else {
 
+}
+function getasillyanswer() {
+  //this is where the answer choosing goes
 }
