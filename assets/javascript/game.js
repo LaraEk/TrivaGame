@@ -20,8 +20,8 @@ $(document).ready(function() {
 
     if (number === 0) {
       stop();
-      alert("Time Up!");
-  //    loseapoint++;
+      alert("Time's Up!");
+      incorrectanswers++;
     }
   }
 
@@ -92,7 +92,7 @@ $(document).ready(function() {
     $(this).hide();
     $("#starteasy").hide();
     $("#starthard").hide();
-    runclock();
+//    runclock();
     askasillyquestion();
   });
 
@@ -116,21 +116,40 @@ $(document).ready(function() {
     console.log(currentquestion.answers);
     console.log(currentquestion.answerindex);
 
-    $("#questionslot").html(currentquestion.question);
-    $("#answerslotuno").html(currentquestion.answers[0]);
-    $("#answerslotdos").html(currentquestion.answers[1]);
-    $("#answerslottres").html(currentquestion.answers[2]);
-    $("#answerslotquatro").html(currentquestion.answers[3]);
+    // $("#questionslot").html(currentquestion.question);
+    // $("#answerslotuno").html(currentquestion.answers[0]);
+    // $("#answerslotdos").html(currentquestion.answers[1]);
+    // $("#answerslottres").html(currentquestion.answers[2]);
+    // $("#answerslotquatro").html(currentquestion.answers[3]);
     
-    $(".zeeanswers").on("click", function (){
-      console.log("an answer was clicked; an attempt was made");
-      var clickedindex = $(".zeeanswers").index(this);     // if this where the issue is?
-      var thatstherightanswer = currentquestion.answerindex;
-      console.log(clickedindex);
+    // $(".zeeanswers").on("click", function (){
 
-      getasillyanswer();
+    //   console.log("an answer was clicked; an attempt was made");
+    //   var clickedindex = $(".zeeanswers").index(this);     // if this where the issue is?
+    //   var thatstherightanswer = currentquestion.answerindex;
+    //   console.log(clickedindex);
 
-    });
+    //   getasillyanswer();
+
+    // });
+    
+    $("#questionslot").html(currentquestion.question);
+      for(var i = 0; i < 4; i++) {
+        var choices = $('<div>');
+        choices.text(currentquestion.answers[i]);
+        choices.attr({'data-index': i });
+        choices.addClass('thisChoice');
+        $('#answerslot').append(choices);
+      }
+
+      runclock();
+
+      $('.thisChoice').on('click', function() {
+        userSelect = $(this).data('index');
+        clearInterval(intervalId);
+        getasillyanswer();
+      });
+
     
 
   }
@@ -139,17 +158,28 @@ $(document).ready(function() {
 
   function getasillyanswer() {
 
-    if (clickedindex == thatstherightanswer) {    // this never comes out as correct
-      getquestionright = true;
+    var thatstherightanswer = currentquestion.answerindex;
+
+    if(userSelect == thatstherightanswer) {
       console.log("yeah, you're right!");
       correctanswers++;
       $("#correctanswersbox").html(correctanswers);
     } else {
-      getquestionright = false;
+      console.log("no u r rong boo");
       incorrectanswers++;
-      console.log("no u r rong boo")
-      $("#incorrectanswersbox").html(incorrectanswers);
     }
+
+    // if (clickedindex == thatstherightanswer) {    // this never comes out as correct
+    //   getquestionright = true;
+    //   console.log("yeah, you're right!");
+    //   correctanswers++;
+    //   $("#correctanswersbox").html(correctanswers);
+    // } else {
+    //   getquestionright = false;
+    //   incorrectanswers++;
+    //   console.log("no u r rong boo")
+    //   $("#incorrectanswersbox").html(incorrectanswers);
+    // }
 
     askasillyquestion();
   }
