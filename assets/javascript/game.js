@@ -1,117 +1,147 @@
-// --- THE TIMER --- //
-// --- Timer copied from class; will specify timer to activities once I've figured out my questions more -- //
+$(document).ready(function() {
 
-var number = 20;
-var intervalId;
-//$("#stop").on("click", stop);
+  // --- THE TIMER --- //
+  // --- Timer copied from class; will specify timer to activities once I've figured out my questions more -- //
 
-//$("#resume").on("click", run);
+  var number = 20;
+  var intervalId;
+  //$("#stop").on("click", stop);
 
-function runclock() {
-  clearInterval(intervalId);
-  intervalId = setInterval(decrement, 2000);
-}
+  //$("#resume").on("click", run);
 
-function decrement() {
-  number--;
-  $("#show-number").html("<h2>" + number + "</h2>");
-
-  if (number === 0) {
-    stop();
-    alert("Time Up!");
-//    loseapoint++;
+  function runclock() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 2000);
   }
-}
 
-function stop() {
-  clearInterval(intervalId);
-}
+  function decrement() {
+    number--;
+    $("#show-number").html("<h2>" + number + "</h2>");
+
+    if (number === 0) {
+      stop();
+      alert("Time Up!");
+  //    loseapoint++;
+    }
+  }
+
+  function stop() {
+    clearInterval(intervalId);
+  }
 
 
-// --- THE TIMER --- //
-// --- Timer adapted from class version; will specify once I've figured out my questions more -- //
-// -------------------------------------------------------------------------------------------------------- //
-// -------------------------------------------------------------------------------------------------------- //
-// -------------------------------------------------------------------------------------------------------- //
-// -------------------------------------------------------------------------------------------------------- //
-// -------------------------------------------------------------------------------------------------------- //
+  // --- THE TIMER --- //
+  // --- Timer adapted from class version; will specify once I've figured out my questions more -- //
+  // -------------------------------------------------------------------------------------------------------- //
+  // -------------------------------------------------------------------------------------------------------- //
+  // -------------------------------------------------------------------------------------------------------- //
+  // -------------------------------------------------------------------------------------------------------- //
+  // -------------------------------------------------------------------------------------------------------- //
 
 
 
-var questionone = {
-    question: "1. Which of these is not one of the Valar?", 
-    answers: ["(1) Manwe ", "(2) Varda ", "(3) Orome ", "(4) Eru "],
-    answerindex: 3,
-  };
+  var questionone = {
+      question: "1. Which of these is not one of the Valar?", 
+      answers: ["(1) Manwe ", "(2) Varda ", "(3) Orome ", "(4) Eru "],
+      answerindex: 3,
+    };
 
-var questiontwo = {
-    question: "2. How many Silmarils are there?", 
-    answers: ["thousands", 9, 3, 14],
-    answerindex: 2,
-  };
-  
-var questions = [questionone, questiontwo];
+  var questiontwo = {
+      question: "2. How many Silmarils are there?", 
+      answers: ["thousands", 9, 3, 14],
+      answerindex: 2,
+    };
+    
+  var questions = [questionone, questiontwo];
 
-var currentquestion = 0; 
+  var currentquestion = 0; 
 
-var correctanswers = 0;
-var incorrectanswers = 0;
+  var correctanswers = 0;
+  var incorrectanswers = 0;
 
-var getquestionright = false;
+  var getquestionright = false;
 
-// ------------------------------------------------------------------------
-
-function newGame() {
   $("#questionslot").hide();
   $("#answerslotuno").hide();
   $("#answerslotdos").hide();
   $("#answerslottres").hide();
   $("#answerslotquatro").hide();
-  currentquestion = 0;
-  correctanswers = 0;
-  incorrectanswers = 0;
-  askasillyquestion();
-}
 
-$("#starteasy").on("click", function() {
-  $(this).hide();
-  askasillyquestion();
-});
+  // ------------------------------------------------------------------------
 
-$("#starthard").on("click", function() {
-  $(this).hide();
-  runclock();
-  askasillyquestion();
-});
+  function newGame() {
+    $("#questionslot").hide();
+    $("#answerslotuno").hide();
+    $("#answerslotdos").hide();
+    $("#answerslottres").hide();
+    $("#answerslotquatro").hide();
+    currentquestion = 0;
+    correctanswers = 0;
+    incorrectanswers = 0;
+    askasillyquestion();
+  }
 
-// ------------------------------------------------------------------------
+  $("#starteasy").on("click", function() {
+    $(this).hide();
+    $("#starteasy").hide();
+    $("#starthard").hide();
+    askasillyquestion();
+  });
+
+  $("#starthard").on("click", function() {
+    $(this).hide();
+    $("#starteasy").hide();
+    $("#starthard").hide();
+    runclock();
+    askasillyquestion();
+  });
+
+  // ------------------------------------------------------------------------
 
 
 
-function askasillyquestion() {
-  $("#correctanswersbox").show();
-  $("#incorrectanswersbox").show();
+  function askasillyquestion() {
 
-  currentquestion = questions[Math.floor(Math.random() * questions.length)];
-  console.log(currentquestion.question);
-  console.log(currentquestion.answers);
-  console.log(currentquestion.answerindex);
+    $("#questionslot").show();
+    $("#answerslotuno").show();
+    $("#answerslotdos").show();
+    $("#answerslottres").show();
+    $("#answerslotquatro").show();
 
-  $("#questionslot").html(currentquestion.question);
-  $("#answerslotuno").html(currentquestion.answers[0]);
-  $("#answerslotdos").html(currentquestion.answers[1]);
-  $("#answerslottres").html(currentquestion.answers[2]);
-  $("#answerslotquatro").html(currentquestion.answers[3]);
-  
-  $(".zeeanswers").on("click", function (){
-    console.log("boing boing");
-    var clickedindex = $(".zeeanswers").index(this);
-    var thatstherightanswer = currentquestion.answerindex;
-    console.log(clickedindex);
+    $("#correctanswersbox").show();
+    $("#incorrectanswersbox").show();
 
-    if (clickedindex == thatstherightanswer) {
+    currentquestion = questions[Math.floor(Math.random() * questions.length)];
+    console.log(currentquestion.question);
+    console.log(currentquestion.answers);
+    console.log(currentquestion.answerindex);
+
+    $("#questionslot").html(currentquestion.question);
+    $("#answerslotuno").html(currentquestion.answers[0]);
+    $("#answerslotdos").html(currentquestion.answers[1]);
+    $("#answerslottres").html(currentquestion.answers[2]);
+    $("#answerslotquatro").html(currentquestion.answers[3]);
+    
+    $(".zeeanswers").on("click", function (){
+      console.log("an answer was clicked; an attempt was made");
+      var clickedindex = $(".zeeanswers").index(this);     // if this where the issue is?
+      var thatstherightanswer = currentquestion.answerindex;
+      console.log(clickedindex);
+
+      getasillyanswer();
+
+    });
+    
+
+  }
+
+
+
+  function getasillyanswer() {
+
+    if (clickedindex == thatstherightanswer) {    // this never comes out as correct
       getquestionright = true;
-      console.log("yeah, you're right!")
+      console.log("yeah, you're right!");
       correctanswers++;
       $("#correctanswersbox").html(correctanswers);
     } else {
@@ -121,19 +151,20 @@ function askasillyquestion() {
       $("#incorrectanswersbox").html(incorrectanswers);
     }
 
+    askasillyquestion();
+  }
 
 
-  });
-  // if (getquestionright == true) {
-  
-  //   $("correctquestions").html()
-  // } else {}
-  
+      if ((correctanswers + incorrectanswers) == 2) {
+        bigWin();
+      }
 
-}
+  function bigWin() {
+    $(this).hide();
+    $("#itswinningtime").show();
+    $("#itswinningtime").show();  
+  }
 
 
 
-function getasillyanswer() {
-  //this is where the answer choosing goes
-}
+});
