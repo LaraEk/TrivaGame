@@ -54,16 +54,22 @@ var questions = [questionone, questiontwo];
 
 var currentquestion = 0; 
 
-var winapoint = 0;
-var loseapoint = 0;
+var correctanswers = 0;
+var incorrectanswers = 0;
 
 var getquestionright = false;
 
 // ------------------------------------------------------------------------
 
 function newGame() {
+  $("#questionslot").hide();
+  $("#answerslotuno").hide();
+  $("#answerslotdos").hide();
+  $("#answerslottres").hide();
+  $("#answerslotquatro").hide();
   currentquestion = 0;
-  correctanswer = 0;
+  correctanswers = 0;
+  incorrectanswers = 0;
   askasillyquestion();
 }
 
@@ -83,6 +89,9 @@ $("#starthard").on("click", function() {
 
 
 function askasillyquestion() {
+  $("#correctanswersbox").show();
+  $("#incorrectanswersbox").show();
+
   currentquestion = questions[Math.floor(Math.random() * questions.length)];
   console.log(currentquestion.question);
   console.log(currentquestion.answers);
@@ -103,8 +112,13 @@ function askasillyquestion() {
     if (clickedindex == thatstherightanswer) {
       getquestionright = true;
       console.log("yeah, you're right!")
+      correctanswers++;
+      $("#correctanswersbox").html(correctanswers);
     } else {
+      getquestionright = false;
+      incorrectanswers++;
       console.log("no u r rong boo")
+      $("#incorrectanswersbox").html(incorrectanswers);
     }
 
 
