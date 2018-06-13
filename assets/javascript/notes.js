@@ -241,3 +241,12 @@ $(document).ready(function() {
   <div id="answerslottres"></div>
   <br>
   <div id="answerslotquatro"></div> -->
+
+  //  $("#answerslotuno").hide();
+//  $("#answerslotdos").hide();
+//  $("#answerslottres").hide();
+//  $("#answerslotquatro").hide();
+//    $("#answerslotuno").hide();
+//    $("#answerslotdos").hide();
+//    $("#answerslottres").hide();
+//    $("#answerslotquatro").hide();

@@ -2,6 +2,27 @@ body {
     font-family: 'Inknut Antiqua';
 }
 
+#starteasy {
+    background-color:  #f3e62f;
+    border: double;
+    border-width: 10px;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    display: inline-block;
+    font-family: 'Inknut Antiqua';
+}
+#starthard {
+    background-color:  #a77f13;
+    border: double;
+    border-width: 10px;
+    color: white;
+    padding: 8px 20px;
+    text-align: center;
+    display: inline-block;
+    font-family: 'Inknut Antiqua';
+}
+
 #tolkienbox {
         background-color: #ffffff;
         width: 50%; 
@@ -22,105 +43,26 @@ img {
 
 #show-number {
     background-color: #eec926;
-    width: 50px; 
-    height: 30px;
     margin: 5% 40% 5% 40%;
     color: #83640e;
-/*    padding: 5px; */
     border-style: double;
+    text-align: center;
     border-width: 3px;
-    border-color: #83640e;
     border-radius: 5px;
     position: relative;
 }
 
-#answerslotuno {        
-        width: 30%;
-        padding: 3px 3px;
-        font-size: 14px;
-        text-align: center;
-        cursor: pointer;
-        outline: none;
-        color: #83640e;
-        background-color: #eec926;
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 4px 3px #999;
-    }
 
-#answerslotuno:hover {background-color: #facf43}
-
-#answerslotuno:active {
-  background-color: #3f3e8e;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-    }
-
-#answerslotdos {        
-    width: 30%;
-    padding: 3px 3px;
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #83640e;
-    background-color: #eec926;
+#prettyboxes {
+    margin: auto;
+    background-color:  #eec926; 
     border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 3px #999;
-}
-
-#answerslotdos:hover {background-color: #facf43}
-
-#answerslotdos:active {
-  background-color: #3f3e8e;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-    }
-
-#answerslottres {        
-    width: 30%;
-    padding: 3px 3px;
-    font-size: 14px;
+    color: white;
+    padding: 15px 32px;
     text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #83640e;
-    background-color: #eec926;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 3px #999;
-}
-
-#answerslottres:hover {background-color: #facf43}
-
-#answerslottres:active {
-  background-color: #3f3e8e;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-    }
-
-#answerslotquatro {        
-    width: 30%;
-    padding: 3px 3px;
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #83640e;
-    background-color: #eec926;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 3px #999;
-}
-
-#answerslotquatro:hover {background-color: #facf43}
-
-#answerslotquatro:active {
-  background-color: #3f3e8e;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-    }
+    display: inline-block;
+    font-size: 16px;
+  }
 
 .correctanswersbox {
     float: left;
@@ -136,14 +78,3 @@ img {
     height: 100px;
     border: 1px solid #eec926;    
 }
-
-#prettyboxes {
-    margin: 0% 20% 0% 20%;
-    background-color:  #eec926; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-  }

@@ -1,6 +1,6 @@
-$(document).ready(function() {
+ $(document).ready(function() {
 
-  // --- THE TIMER --- //
+  // --- THE TIMER  [from Interval] --- //
 
     var number = 20;
     var intervalId;
@@ -26,7 +26,7 @@ $(document).ready(function() {
     }
 
 
-  // --- THE TIMER --- //
+  // --- THE TIMER  [from Interval] --- //
   // -------------------------------------------------------------------------------------------------------- //
 
 
@@ -54,27 +54,27 @@ $(document).ready(function() {
 
   var getquestionright = false;
 
+  $("#starteasy").show();
+  $("#starthard").show();
+
+  $("#shownumber").hide();
   $("#questionslot").hide();
-//  $("#answerslotuno").hide();
-//  $("#answerslotdos").hide();
-//  $("#answerslottres").hide();
-//  $("#answerslotquatro").hide();
-
-
   $("#itswinningtime").hide();
-  $("#letsputagif").hide();  
+  $("#wingif").hide();  
+  $("#itslosingtime").hide();
+  $("#lossgif").hide();  
 
   // ------------------------------------------------------------------------
 
   function newGame() {
     $("#questionslot").hide();
-//    $("#answerslotuno").hide();
-//    $("#answerslotdos").hide();
-//    $("#answerslottres").hide();
-//    $("#answerslotquatro").hide();
     $("#itswinningtime").hide();
-    $("#letsputagif").hide();  
-  currentquestion = 0;
+    $("#wingif").hide();  
+    $("#itslosingtime").hide();
+    $("#lossgif").hide();  
+    $("#starteasy").show();
+    $("#starthard").show();
+      currentquestion = 0;
     correctanswers = 0;
     incorrectanswers = 0;
     askasillyquestion();
@@ -91,6 +91,7 @@ $(document).ready(function() {
     $(this).hide();
     $("#starteasy").hide();
     $("#starthard").hide();
+    $("#shownumber").show();
     runclock();
     askasillyquestion();
   });
@@ -101,11 +102,6 @@ $(document).ready(function() {
   function askasillyquestion() {
 
     $("#questionslot").show();
-//    $("#answerslotuno").show();
-//    $("#answerslotdos").show();
-//    $("#answerslottres").show();
-//    $("#answerslotquatro").show();
-
     $("#correctanswersbox").show();
     $("#incorrectanswersbox").show();
 
@@ -164,11 +160,20 @@ $(document).ready(function() {
 
 
   function bigWin() { console.log("endgame");
-    $("#show-time").empty();
-    clearInterval(intervalId);
-//  $(this).hide();
-    $("#itswinningtime").show();
-    $("#letsputagif").show();  
+
+    if (correctanswers > incorrectanswers) {
+      $("#show-time").empty();
+      clearInterval(intervalId);
+      $("#itswinningtime").show();
+      $("#wingif").show();  
+    } else {
+      $("#show-time").empty();
+      clearInterval(intervalId);
+      $("#itslosingtime").show();
+      $("#lossgif").show();  
+  
+    }
+
   }
 
 
