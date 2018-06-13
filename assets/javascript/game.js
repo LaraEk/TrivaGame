@@ -42,17 +42,34 @@
       answers: ["thousands", 9, 3, 14],
       answerindex: 2,
     };
+
+    var questionthree = {
+      question: "3. How old was Bilbo when he left the Shire in Fellowship?", 
+      answers: [33, 50, 111, 249],
+      answerindex: 1,
+    };
+
+    var questionfour = {
+      question: "4. How many members of the Fellowship are there?", 
+      answers: [9,9,9,"Why are you even asking me this question?"],
+      answerindex: 3,
+    };
+
+    var questionfive = {
+      question: "5. Which of these is not one of Gandalf's names?", 
+      answers: ["Mithrandir", "Elbereth", "Olorin", "Greyhame"],
+      answerindex: 1,
+    };
+
     
   var questions = [questionone, questiontwo];
 
   var currentquestion = 0;
-  var numberofquestions = 20;
+  var numberofquestions = 19;   // so that it increments to 20 instead of to 21
   var questionssofar = 0;
 
   var correctanswers = 0;
   var incorrectanswers = 0;
-
-  var getquestionright = false;
 
   $("#starteasy").show();
   $("#starthard").show();
@@ -74,7 +91,7 @@
     $("#lossgif").hide();  
     $("#starteasy").show();
     $("#starthard").show();
-      currentquestion = 0;
+    currentquestion = 0;
     correctanswers = 0;
     incorrectanswers = 0;
     askasillyquestion();
@@ -119,11 +136,8 @@
         $('#answerslot').append(choices);
       }
 
-//      runclock();
-
       $('.thisChoice').on('click', function() {
         userSelect = $(this).data('index');
-//        clearInterval(intervalId);
         getasillyanswer();
       });
     
@@ -146,33 +160,34 @@
     }
 
     if(questionssofar == numberofquestions){
-      setTimeout(bigWin, 200)
+      bigWin();
     } else {
-//      currentquestion++;
-      setTimeout(askasillyquestion, 200)
+      setTimeout(askasillyquestion, 50)
       questionssofar++;
       console.log("there have been " + questionssofar + " Qs so far")
     }
 
-//    askasillyquestion();
   }
 
 
 
-  function bigWin() { console.log("endgame");
+  function bigWin() { console.log("there are " + correctanswers + " correct and " + incorrectanswers + " incorrect");
 
     if (correctanswers > incorrectanswers) {
+      $("#questionslot").hide();
       $("#show-time").empty();
       clearInterval(intervalId);
       $("#itswinningtime").show();
       $("#wingif").show();  
-    } else {
+    } 
+    
+    if (incorrectanswers > correctanswers)  {
+      $("#questionslot").hide();
       $("#show-time").empty();
       clearInterval(intervalId);
       $("#itslosingtime").show();
       $("#lossgif").show();  
-  
-    }
+    } 
 
   }
 

@@ -52,6 +52,10 @@ img {
     position: relative;
 }
 
+.thisChoice {
+    cursor: pointer;
+    line-height: 37px;
+}
 
 #prettyboxes {
     margin: auto;
