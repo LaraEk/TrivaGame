@@ -1,41 +1,32 @@
 $(document).ready(function() {
 
   // --- THE TIMER --- //
-  // --- Timer copied from class; will specify timer to activities once I've figured out my questions more -- //
 
-  var number = 20;
-  var intervalId;
-  //$("#stop").on("click", stop);
+    var number = 20;
+    var intervalId;
 
-  //$("#resume").on("click", run);
-
-  function runclock() {
-    clearInterval(intervalId);
-    intervalId = setInterval(decrement, 2000);
-  }
-
-  function decrement() {
-    number--;
-    $("#show-number").html("<h2>" + number + "</h2>");
-
-    if (number === 0) {
-      stop();
-      alert("Time's Up!");
-      incorrectanswers++;
+    function runclock() {
+      clearInterval(intervalId);
+      intervalId = setInterval(decrement, 2000);
     }
-  }
 
-  function stop() {
-    clearInterval(intervalId);
-  }
+    function decrement() {
+      number--;
+      $("#show-number").html("<h2>" + number + "</h2>");
+
+      if (number === 0) {
+        stop();
+        alert("Time's Up!");
+        incorrectanswers++;
+      }
+    }
+
+    function stop() {
+      clearInterval(intervalId);
+    }
 
 
   // --- THE TIMER --- //
-  // --- Timer adapted from class version; will specify once I've figured out my questions more -- //
-  // -------------------------------------------------------------------------------------------------------- //
-  // -------------------------------------------------------------------------------------------------------- //
-  // -------------------------------------------------------------------------------------------------------- //
-  // -------------------------------------------------------------------------------------------------------- //
   // -------------------------------------------------------------------------------------------------------- //
 
 
@@ -54,7 +45,9 @@ $(document).ready(function() {
     
   var questions = [questionone, questiontwo];
 
-  var currentquestion = 0; 
+  var currentquestion = 0;
+  var numberofquestions = 20;
+  var questionssofar = 0;
 
   var correctanswers = 0;
   var incorrectanswers = 0;
@@ -62,20 +55,26 @@ $(document).ready(function() {
   var getquestionright = false;
 
   $("#questionslot").hide();
-  $("#answerslotuno").hide();
-  $("#answerslotdos").hide();
-  $("#answerslottres").hide();
-  $("#answerslotquatro").hide();
+//  $("#answerslotuno").hide();
+//  $("#answerslotdos").hide();
+//  $("#answerslottres").hide();
+//  $("#answerslotquatro").hide();
+
+
+  $("#itswinningtime").hide();
+  $("#letsputagif").hide();  
 
   // ------------------------------------------------------------------------
 
   function newGame() {
     $("#questionslot").hide();
-    $("#answerslotuno").hide();
-    $("#answerslotdos").hide();
-    $("#answerslottres").hide();
-    $("#answerslotquatro").hide();
-    currentquestion = 0;
+//    $("#answerslotuno").hide();
+//    $("#answerslotdos").hide();
+//    $("#answerslottres").hide();
+//    $("#answerslotquatro").hide();
+    $("#itswinningtime").hide();
+    $("#letsputagif").hide();  
+  currentquestion = 0;
     correctanswers = 0;
     incorrectanswers = 0;
     askasillyquestion();
@@ -92,21 +91,20 @@ $(document).ready(function() {
     $(this).hide();
     $("#starteasy").hide();
     $("#starthard").hide();
-//    runclock();
+    runclock();
     askasillyquestion();
   });
 
   // ------------------------------------------------------------------------
 
 
-
   function askasillyquestion() {
 
     $("#questionslot").show();
-    $("#answerslotuno").show();
-    $("#answerslotdos").show();
-    $("#answerslottres").show();
-    $("#answerslotquatro").show();
+//    $("#answerslotuno").show();
+//    $("#answerslotdos").show();
+//    $("#answerslottres").show();
+//    $("#answerslotquatro").show();
 
     $("#correctanswersbox").show();
     $("#incorrectanswersbox").show();
@@ -116,23 +114,6 @@ $(document).ready(function() {
     console.log(currentquestion.answers);
     console.log(currentquestion.answerindex);
 
-    // $("#questionslot").html(currentquestion.question);
-    // $("#answerslotuno").html(currentquestion.answers[0]);
-    // $("#answerslotdos").html(currentquestion.answers[1]);
-    // $("#answerslottres").html(currentquestion.answers[2]);
-    // $("#answerslotquatro").html(currentquestion.answers[3]);
-    
-    // $(".zeeanswers").on("click", function (){
-
-    //   console.log("an answer was clicked; an attempt was made");
-    //   var clickedindex = $(".zeeanswers").index(this);     // if this where the issue is?
-    //   var thatstherightanswer = currentquestion.answerindex;
-    //   console.log(clickedindex);
-
-    //   getasillyanswer();
-
-    // });
-    
     $("#questionslot").html(currentquestion.question);
       for(var i = 0; i < 4; i++) {
         var choices = $('<div>');
@@ -142,14 +123,13 @@ $(document).ready(function() {
         $('#answerslot').append(choices);
       }
 
-      runclock();
+//      runclock();
 
       $('.thisChoice').on('click', function() {
         userSelect = $(this).data('index');
-        clearInterval(intervalId);
+//        clearInterval(intervalId);
         getasillyanswer();
       });
-
     
   }
 
@@ -169,30 +149,26 @@ $(document).ready(function() {
       $("#incorrectanswersbox").html(incorrectanswers);
     }
 
-    // if (clickedindex == thatstherightanswer) {    // this never comes out as correct
-    //   getquestionright = true;
-    //   console.log("yeah, you're right!");
-    //   correctanswers++;
-    //   $("#correctanswersbox").html(correctanswers);
-    // } else {
-    //   getquestionright = false;
-    //   incorrectanswers++;
-    //   console.log("no u r rong boo")
-    //   $("#incorrectanswersbox").html(incorrectanswers);
-    // }
+    if(questionssofar == numberofquestions){
+      setTimeout(bigWin, 200)
+    } else {
+//      currentquestion++;
+      setTimeout(askasillyquestion, 200)
+      questionssofar++;
+      console.log("there have been " + questionssofar + " Qs so far")
+    }
 
-    askasillyquestion();
+//    askasillyquestion();
   }
 
 
-      if ((correctanswers + incorrectanswers) == 2) {
-        bigWin();
-      }
 
-  function bigWin() {
-    $(this).hide();
+  function bigWin() { console.log("endgame");
+    $("#show-time").empty();
+    clearInterval(intervalId);
+//  $(this).hide();
     $("#itswinningtime").show();
-    $("#itswinningtime").show();  
+    $("#letsputagif").show();  
   }
 
 
