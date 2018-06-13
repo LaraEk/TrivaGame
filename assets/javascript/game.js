@@ -151,13 +151,12 @@ $(document).ready(function() {
       });
 
     
-
   }
 
 
 
   function getasillyanswer() {
-
+    $(".thisChoice").empty();
     var thatstherightanswer = currentquestion.answerindex;
 
     if(userSelect == thatstherightanswer) {
@@ -167,6 +166,7 @@ $(document).ready(function() {
     } else {
       console.log("no u r rong boo");
       incorrectanswers++;
+      $("#incorrectanswersbox").html(incorrectanswers);
     }
 
     // if (clickedindex == thatstherightanswer) {    // this never comes out as correct
