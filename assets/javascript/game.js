@@ -61,8 +61,38 @@
       answerindex: 1,
     };
 
+    var questionsix = {
+      question: "6. Why was it special that Gimli received three hairs from Galadriel?", 
+      answers: ["because she thought he was cute", "it was an antedote against Shelob's venom, which could cut through mithril", "it made him an elf-friend, which no dwarf has ever acheived","it was hot"],
+      answerindex: 2,
+    };
+
+    var questionseven = {
+      question: "7. What tribe of men was Aragorn from?", 
+      answers: ["Rohirrim", "Easterling", "Haradrim", "Dunedain"],
+      answerindex: 1,
+    };
+
+    var questioneight = {
+      question: "8. Which dwarf from the Hobbit reestablished a foothold in Moria?", 
+      answers: ["Thorin", "Balin", "Gloin", "Kili"],
+      answerindex: 1,
+    };
+
+    var questionnine = {
+      question: "9. Who could use the palantiri?", 
+      answers: ["wizards only", "Sarumon and Aragorn", "only Sauron", "anyone"],
+      answerindex: 1,
+    };
+
+    var questionten = {
+      question: "10. Where is the War of the Ring documented?", 
+      answers: ["The Red Book of Westmarch", "The Book of Mazarbul", "There And Back Again", "The Silmarillion"],
+      answerindex: 1,
+    };
+
     
-  var questions = [questionone, questiontwo];
+  var questions = [questionone, questiontwo, questionthree, questionfour, questionfive, questionsix, questionseven, questioneight, questionnine, questionten];
 
   var currentquestion = 0;
   var numberofquestions = 19;   // so that it increments to 20 instead of to 21
