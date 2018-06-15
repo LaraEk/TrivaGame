@@ -97,32 +97,93 @@
       answerindex: 0,
     };
 
-    var questionfive = {
-      question: "5. Which of these is not one of Gandalf's names?", 
-      answers: ["Mithrandir", "Elbereth", "Olorin", "Greyhame"],
+    var questiontwelve = {
+      question: "Whom do Sam and Frodo tell when they leave the Fellowship?", 
+      answers: ["everyone", "Gandalf", "Aragorn", "no one"],
+      answerindex: 3,
+    };
+
+    var questionthirteen = {
+      question: "5. When does the Fellowship first notice Gollum following?", 
+      answers: ["in the Shire", "in the mines of Moria", "along the Great River", "at Shelob's Lair"],
+      answerindex: 2,
+    };
+
+    var questionfourteen = {
+      question: "When does Boromir die?", 
+      answers: ["at the end of the first movie", "at the end of the first book", "at the beginning of the second movie", "at the beginning of the second book"],
+      answerindex: 3,
+    };
+
+    var questionfifteen = {
+      question: "Tell me, Legolas! What do your elf-eyes see?", 
+      answers: ["They're taking the hobbits to Isengard!", "I see trees of green, and clouds of white...", "(Legolas does not answer, but stares forlornly into the distance)", "I seent it!"],
+      answerindex: 0,
+    };
+
+    var questionsixteen = {
+      question: "What happens to the Shire after the War of the Ring?", 
+      answers: ["Sam becomes King of the Shire", "Saruman and Grima move in and lay waste", "The Hobbits have a lot of parties and eat a lot", "Nothing at all, it's pretty boring"],
       answerindex: 1,
     };
 
-    var questionfive = {
-      question: "5. Which of these is not one of Gandalf's names?", 
-      answers: ["Mithrandir", "Elbereth", "Olorin", "Greyhame"],
+    var questionseventeen = {
+      question: "Tell me, where is Gandalf, for I much desire to speak with him.", 
+      answers: ["He has fallen into shadow.", "They're taking the Hobbits to Isengard!", "The Power Of Mordor", "What did you say?"],
+      answerindex: 0,
+    };
+
+    var questioneighteen = {
+      question: "How did Frodo fight off Shelob?", 
+      answers: ["using Sting, he stabbed her", "he used three hairs of Galadriel to bind her", "he used the Ring to hide himself and rang from her", "none of these, he got bitten and died temporarily"],
+      answerindex: 3,
+    };
+
+    var questionnineteen = {
+      question: "Which of the Hobbits went to the Grey Havens and passed out of Middle-Earth?", 
+      answers: ["Sam", "Pippin", "Frodo", "Merry"],
+      answerindex: 2,
+    };
+
+    var questiontwenty = {
+      question: "Which of these is not a forest on Middle-Earth?",
+      answers: ["Fangorn", "Lothlorien", "Mirkwood", "Eriador"],
+      answerindex: 3,
+    };
+
+    var questiontwentyone = {
+      question: "Who were the tree people?", 
+      answers: ["Ents", "Tree-wives", "the Withywindle", "the wood-elves of Mirkwood"],
+      answerindex: 0,
+    };
+
+    var questiontwentytwo = {
+      question: "What is the title of the fouth chapter of Fellowship?", 
+      answers: ["The Battle of Cirith Ungol" , "There And Back Again" ,"Three is Company", "A Shortcut To Mushrooms"],
+      answerindex: 3,
+    };
+
+    var questiontwentythree = {
+      question: "What does Tom Bombadil do with the Ring?",
+      answers: ["turn invisible", "build an empire", "divest his stocks", "nothing"],
+      answerindex: 3,
+    };
+
+    var questiontwentyfour = {
+      question: "Where do the Hobbits get their weapons?",
+      answers: ["The Shire", "The Barrow-Downs", "Rivendell", "As gifts from Bilbo"],
       answerindex: 1,
     };
 
-    var questionfive = {
-      question: "5. Which of these is not one of Gandalf's names?", 
-      answers: ["Mithrandir", "Elbereth", "Olorin", "Greyhame"],
-      answerindex: 1,
-    };
-
-    var questionfive = {
-      question: "5. Which of these is not one of Gandalf's names?", 
-      answers: ["Mithrandir", "Elbereth", "Olorin", "Greyhame"],
-      answerindex: 1,
+    var questiontwentyfive = {
+      question: "Which of these is not one of Aragorn's names?",
+      answers: ["Arathorn", "Elessar", "Estel" , "Strider"],
+      answerindex: 0,
     };
 
     
-  var questions = [questionone, questiontwo, questionthree, questionfour, questionfive, questionsix, questionseven, questioneight, questionnine, questionten];
+    
+  var questions = [questionone, questiontwo, questionthree, questionfour, questionfive, questionsix, questionseven, questioneight, questionnine, questionten, questioneleven, questiontwelve, questionthirteen, questionfourteen, questionfifteen, questionsixteen, questionseventeen, questioneighteen, questionnineteen, questiontwenty, questiontwentyone, questiontwentytwo, questiontwentythree, questiontwentyfour, questiontwentyfive];
 
   var currentquestion = 0;
   var numberofquestions = 19;   // so that it increments to 20 instead of to 21
