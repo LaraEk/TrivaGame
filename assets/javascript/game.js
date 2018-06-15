@@ -316,10 +316,10 @@
 
   }
 
-  $("#startanewgame").on("click," function() {
-    $(this).hide();
-    newGame();
-  });
+  // $("#startanewgame").on("click," function() {
+  //   $(this).hide();
+  //   newGame();
+  // });
 
 
 });
