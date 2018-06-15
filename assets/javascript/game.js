@@ -32,27 +32,69 @@
 
 
   var questionone = {
-      question: "1. Which of these is not one of the Valar?", 
+      question: "Which of these is not one of the Valar?", 
       answers: ["(1) Manwe ", "(2) Varda ", "(3) Orome ", "(4) Eru "],
       answerindex: 3,
     };
 
   var questiontwo = {
-      question: "2. How many Silmarils are there?", 
+      question: "How many Silmarils are there?", 
       answers: ["thousands", 9, 3, 14],
       answerindex: 2,
     };
 
     var questionthree = {
-      question: "3. How old was Bilbo when he left the Shire in Fellowship?", 
+      question: "How old was Bilbo when he left the Shire in Fellowship?", 
       answers: [33, 50, 111, 249],
       answerindex: 1,
     };
 
     var questionfour = {
-      question: "4. How many members of the Fellowship are there?", 
+      question: "How many members of the Fellowship are there?", 
       answers: [9,9,9,"Why are you even asking me this question?"],
       answerindex: 3,
+    };
+
+    var questionfive = {
+      question: "Which of these is not one of Gandalf's names?", 
+      answers: ["Mithrandir", "Elbereth", "Olorin", "Greyhame"],
+      answerindex: 1,
+    };
+
+    var questionsix = {
+      question: "Why was it special that Gimli received three hairs from Galadriel?", 
+      answers: ["because she thought he was cute", "it was an antedote against Shelob's venom, which could cut through mithril", "it made him an elf-friend, which no dwarf has ever acheived","it was hot"],
+      answerindex: 2,
+    };
+
+    var questionseven = {
+      question: "What tribe of men was Aragorn from?", 
+      answers: ["Rohirrim", "Easterling", "Haradrim", "Dunedain"],
+      answerindex: 3,
+    };
+
+    var questioneight = {
+      question: "Which dwarf from the Hobbit reestablished a foothold in Moria?", 
+      answers: ["Thorin", "Balin", "Gloin", "Kili"],
+      answerindex: 1,
+    };
+
+    var questionnine = {
+      question: "Who could use the palantiri?", 
+      answers: ["wizards only", "Sarumon and Aragorn", "only Sauron", "anyone"],
+      answerindex: 3,
+    };
+
+    var questionten = {
+      question: "Where is the War of the Ring documented?", 
+      answers: ["The Red Book of Westmarch", "The Book of Mazarbul", "There And Back Again", "The Silmarillion"],
+      answerindex: 0,
+    };
+
+    var questioneleven = {
+      question: "Who was not at the Council of Elrond?", 
+      answers: ["Thranduil", "Legolas", "Gloin", "Glorfindel"],
+      answerindex: 0,
     };
 
     var questionfive = {
@@ -61,33 +103,21 @@
       answerindex: 1,
     };
 
-    var questionsix = {
-      question: "6. Why was it special that Gimli received three hairs from Galadriel?", 
-      answers: ["because she thought he was cute", "it was an antedote against Shelob's venom, which could cut through mithril", "it made him an elf-friend, which no dwarf has ever acheived","it was hot"],
-      answerindex: 2,
-    };
-
-    var questionseven = {
-      question: "7. What tribe of men was Aragorn from?", 
-      answers: ["Rohirrim", "Easterling", "Haradrim", "Dunedain"],
+    var questionfive = {
+      question: "5. Which of these is not one of Gandalf's names?", 
+      answers: ["Mithrandir", "Elbereth", "Olorin", "Greyhame"],
       answerindex: 1,
     };
 
-    var questioneight = {
-      question: "8. Which dwarf from the Hobbit reestablished a foothold in Moria?", 
-      answers: ["Thorin", "Balin", "Gloin", "Kili"],
+    var questionfive = {
+      question: "5. Which of these is not one of Gandalf's names?", 
+      answers: ["Mithrandir", "Elbereth", "Olorin", "Greyhame"],
       answerindex: 1,
     };
 
-    var questionnine = {
-      question: "9. Who could use the palantiri?", 
-      answers: ["wizards only", "Sarumon and Aragorn", "only Sauron", "anyone"],
-      answerindex: 1,
-    };
-
-    var questionten = {
-      question: "10. Where is the War of the Ring documented?", 
-      answers: ["The Red Book of Westmarch", "The Book of Mazarbul", "There And Back Again", "The Silmarillion"],
+    var questionfive = {
+      question: "5. Which of these is not one of Gandalf's names?", 
+      answers: ["Mithrandir", "Elbereth", "Olorin", "Greyhame"],
       answerindex: 1,
     };
 
@@ -103,6 +133,7 @@
 
   $("#starteasy").show();
   $("#starthard").show();
+  $("#startanewgame").hide();
 
   $("#shownumber").hide();
   $("#questionslot").hide();
@@ -121,6 +152,7 @@
     $("#lossgif").hide();  
     $("#starteasy").show();
     $("#starthard").show();
+    $("#startanewgame").hide();
     currentquestion = 0;
     correctanswers = 0;
     incorrectanswers = 0;
@@ -209,6 +241,7 @@
       clearInterval(intervalId);
       $("#itswinningtime").show();
       $("#wingif").show();  
+      $("#startanewgame").show();
     } 
     
     if (incorrectanswers > correctanswers)  {
@@ -217,10 +250,15 @@
       clearInterval(intervalId);
       $("#itslosingtime").show();
       $("#lossgif").show();  
+      $("#startanewgame").show();
     } 
 
   }
 
+  $("#startanewgame").on("click," function() {
+    $(this).hide();
+    newGame();
+  });
 
 
 });
